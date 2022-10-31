@@ -9,7 +9,7 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 
 
 @unauthenticated_user
-def signin(request):
+def signin( request):
     if request.user.is_authenticated:
         return redirect('/')
     if request.method == 'POST':
