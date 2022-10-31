@@ -3,9 +3,15 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Student(models.Model):
+
+    GENDER = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+    )
+
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
-    gender = models.CharField(max_length=200, null=True)
+    gender = models.CharField(max_length=10, null=True, choices=GENDER)
     father_name = models.CharField(max_length=200, null=True)
     mother_name = models.CharField(max_length=200, null=True)
     dob = models.DateField(null=True)
