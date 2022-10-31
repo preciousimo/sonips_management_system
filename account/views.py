@@ -1,11 +1,31 @@
 from django.shortcuts import render, redirect
-
-from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib import messages
 from django.contrib.auth.models import Group
 
+from .forms import  NewUserForm
+from sonips_student.models import Student
 from .decorators import unauthenticated_user, allowed_users, admin_only
+
+@unauthenticated_user
+def signup(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=True)
+            username = form.cleaned_data.get('username') 
+
+            messages.success(request, "Registration successful." )
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+             
+    else:
+        form =  NewUserForm()
 
 
 @unauthenticated_user
