@@ -1,127 +1,126 @@
 {% extends 'base/base.html' %} {% load static %} {% block content %}
 <!-- Page Area Start Here -->
 <div class="dashboard-page-one">
-    <!-- Sidebar Area Start Here -->
-    <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
-      <div class="mobile-sidebar-header d-md-none">
-        <div class="header-logo">
-          <a href="{% url 'index' %}"
-            ><img width="50%" src="{% static 'img/logo.png' %}" alt="logo"
-          /></a>
-        </div>
-      </div>
-      <div class="sidebar-menu-content">
-        <ul class="nav nav-sidebar-menu sidebar-toggle-view">
-          <li class="nav-item sidebar-nav-item">
-            <a href="{% url 'index' %}" class="nav-link"
-              ><i class="flaticon-dashboard"></i><span>Dashboard</span></a
-            >
-            <ul class="nav sub-group-menu">
-              <li class="nav-item">
-                <a href="{% url 'index' %}" class="nav-link menu-active"
-                  ><i class="fas fa-angle-right"></i>Admin</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="index3.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Students</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="index4.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Parents</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="index5.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Teachers</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item sidebar-nav-item">
-            <a href="#" class="nav-link"
-              ><i class="flaticon-classmates"></i><span>Students</span></a
-            >
-            <ul class="nav sub-group-menu">
-              <li class="nav-item">
-                <a href="all-student.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>All Students</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="student-details.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Student Details</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="admit-form.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Admission Form</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item sidebar-nav-item">
-            <a href="#" class="nav-link"
-              ><i class="flaticon-multiple-users-silhouette"></i
-              ><span>Teachers</span></a
-            >
-            <ul class="nav sub-group-menu">
-              <li class="nav-item">
-                <a href="all-teacher.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>All Teachers</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="teacher-details.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Teacher Details</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="add-teacher.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Add Teacher</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item sidebar-nav-item">
-            <a href="#" class="nav-link"
-              ><i class="flaticon-couple"></i><span>Parents</span></a
-            >
-            <ul class="nav sub-group-menu">
-              <li class="nav-item">
-                <a href="all-parents.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>All Parents</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="parents-details.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Parents Details</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="add-parents.html" class="nav-link"
-                  ><i class="fas fa-angle-right"></i>Add Parent</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="all-subject.html" class="nav-link"
-              ><i class="flaticon-open-book"></i><span>Subject</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="messaging.html" class="nav-link"
-              ><i class="flaticon-chat"></i><span>Messeage</span></a
-            >
-          </li>
-        </ul>
+  <!-- Sidebar Area Start Here -->
+  <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+    <div class="mobile-sidebar-header d-md-none">
+      <div class="header-logo">
+        <a href="{% url 'index' %}"
+          ><img width="50%" src="{% static 'img/logo.png' %}" alt="logo"
+        /></a>
       </div>
     </div>
-    <!-- Sidebar Area End Here -->
-    <div class="dashboard-content-one">
+    <div class="sidebar-menu-content">
+      <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+        <li class="nav-item sidebar-nav-item">
+          <a href="{% url 'index' %}" class="nav-link"
+            ><i class="flaticon-dashboard"></i><span>Dashboard</span></a
+          >
+          <ul class="nav sub-group-menu">
+            <li class="nav-item">
+              <a href="{% url 'index' %}" class="nav-link menu-active"
+                ><i class="fas fa-angle-right"></i>Admin</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index3.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Students</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index4.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Parents</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index5.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Teachers</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item sidebar-nav-item">
+          <a href="#" class="nav-link"
+            ><i class="flaticon-classmates"></i><span>Students</span></a
+          >
+          <ul class="nav sub-group-menu">
+            <li class="nav-item">
+              <a href="all-student.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>All Students</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="student-details.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Student Details</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="admit-form.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Admission Form</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item sidebar-nav-item">
+          <a href="#" class="nav-link"
+            ><i class="flaticon-multiple-users-silhouette"></i
+            ><span>Teachers</span></a
+          >
+          <ul class="nav sub-group-menu">
+            <li class="nav-item">
+              <a href="all-teacher.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>All Teachers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="teacher-details.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Teacher Details</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="add-teacher.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Add Teacher</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item sidebar-nav-item">
+          <a href="#" class="nav-link"
+            ><i class="flaticon-couple"></i><span>Parents</span></a
+          >
+          <ul class="nav sub-group-menu">
+            <li class="nav-item">
+              <a href="all-parents.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>All Parents</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="parents-details.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Parents Details</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="add-parents.html" class="nav-link"
+                ><i class="fas fa-angle-right"></i>Add Parent</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="all-subject.html" class="nav-link"
+            ><i class="flaticon-open-book"></i><span>Subject</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="messaging.html" class="nav-link"
+            ><i class="flaticon-chat"></i><span>Messeage</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
   <!-- Sidebar Area End Here -->
+  
   <div class="dashboard-content-one">
     <!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
@@ -309,224 +308,6 @@
           </div>
         </div>
       </div>
-      <div class="col-4-xxxl col-xl-5">
-        <div class="card account-settings-box height-auto">
-          <div class="card-body">
-            <div class="heading-layout1 mg-b-20">
-              <div class="item-title">
-                <h3>All User</h3>
-              </div>
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                  >...</a
-                >
-
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-times text-orange-red"></i>Close</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="all-user-box">
-              <div class="media media-none--xs active">
-                <div class="item-img">
-                  <img
-                    src="img/figure/user1.jpg"
-                    class="media-img-auto"
-                    alt="user"
-                  />
-                </div>
-                <div class="media-body space-md">
-                  <h5 class="item-title">Steven Johnson</h5>
-                  <div class="item-subtitle">Super Admin</div>
-                </div>
-              </div>
-              <div class="media media-none--xs">
-                <div class="item-img">
-                  <img
-                    src="img/figure/user2.jpg"
-                    class="media-img-auto"
-                    alt="user"
-                  />
-                </div>
-                <div class="media-body space-md">
-                  <h5 class="item-title">Maria Jane</h5>
-                  <div class="item-subtitle">Super Admin</div>
-                </div>
-              </div>
-              <div class="media media-none--xs">
-                <div class="item-img">
-                  <img
-                    src="img/figure/user3.jpg"
-                    class="media-img-auto"
-                    alt="user"
-                  />
-                </div>
-                <div class="media-body space-md">
-                  <h5 class="item-title">Andrew Walles</h5>
-                  <div class="item-subtitle">Super Admin</div>
-                </div>
-              </div>
-              <div class="media media-none--xs">
-                <div class="item-img">
-                  <img
-                    src="img/figure/user4.jpg"
-                    class="media-img-auto"
-                    alt="user"
-                  />
-                </div>
-                <div class="media-body space-md">
-                  <h5 class="item-title">Walter Emma</h5>
-                  <div class="item-subtitle">Super Admin</div>
-                </div>
-              </div>
-              <div class="media media-none--xs">
-                <div class="item-img">
-                  <img
-                    src="img/figure/user5.jpg"
-                    class="media-img-auto"
-                    alt="user"
-                  />
-                </div>
-                <div class="media-body space-md">
-                  <h5 class="item-title">Stuart Johnson</h5>
-                  <div class="item-subtitle">Super Admin</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-8-xxxl col-xl-7">
-        <div class="card account-settings-box">
-          <div class="card-body">
-            <div class="heading-layout1 mg-b-20">
-              <div class="item-title">
-                <h3>User Details</h3>
-              </div>
-              <div class="dropdown">
-                <a
-                  class="dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                  >...</a
-                >
-
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-times text-orange-red"></i>Close</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    ><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="user-details-box">
-              <div class="item-img">
-                <img src="img/figure/user.jpg" alt="user" />
-              </div>
-              <div class="item-content">
-                <div class="info-table table-responsive">
-                  <table class="table text-nowrap">
-                    <tbody>
-                      <tr>
-                        <td>Name:</td>
-                        <td class="font-medium text-dark-medium">
-                          Steven Johnson
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>User Type:</td>
-                        <td class="font-medium text-dark-medium">
-                          Super Admin
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Gender:</td>
-                        <td class="font-medium text-dark-medium">Male</td>
-                      </tr>
-                      <tr>
-                        <td>Father Name:</td>
-                        <td class="font-medium text-dark-medium">
-                          Steve Jones
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Mother Name:</td>
-                        <td class="font-medium text-dark-medium">Naomi Rose</td>
-                      </tr>
-                      <tr>
-                        <td>Date Of Birth:</td>
-                        <td class="font-medium text-dark-medium">07.08.2016</td>
-                      </tr>
-                      <tr>
-                        <td>Religion:</td>
-                        <td class="font-medium text-dark-medium">Islam</td>
-                      </tr>
-                      <tr>
-                        <td>Joining Date:</td>
-                        <td class="font-medium text-dark-medium">07.08.2016</td>
-                      </tr>
-                      <tr>
-                        <td>E-mail:</td>
-                        <td class="font-medium text-dark-medium">
-                          stevenjohnson@gmail.com
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Subject:</td>
-                        <td class="font-medium text-dark-medium">English</td>
-                      </tr>
-                      <tr>
-                        <td>Class:</td>
-                        <td class="font-medium text-dark-medium">2</td>
-                      </tr>
-                      <tr>
-                        <td>Section:</td>
-                        <td class="font-medium text-dark-medium">Pink</td>
-                      </tr>
-                      <tr>
-                        <td>ID No:</td>
-                        <td class="font-medium text-dark-medium">10005</td>
-                      </tr>
-                      <tr>
-                        <td>Address:</td>
-                        <td class="font-medium text-dark-medium">
-                          House #10, Road #6, Australia
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Phone:</td>
-                        <td class="font-medium text-dark-medium">
-                          + 88 98568888418
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <!-- Account Settings Area End Here -->
     <footer class="footer-wrap-layout1">
@@ -537,7 +318,5 @@
     </footer>
   </div>
 </div>
-</div>
 
 {% endblock %}
-
