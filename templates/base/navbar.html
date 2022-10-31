@@ -4,7 +4,7 @@
 <div class="navbar navbar-expand-md header-menu-one bg-light">
   <div class="nav-bar-header-one">
     <div class="header-logo">
-      <a href="index.html">
+      <a href="{% url 'index' %}">
         <img src="img/logo.png" width="50%" alt="logo" />
       </a>
     </div>
@@ -87,7 +87,7 @@
                 >
               </li>
               <li>
-                <a href="#"
+                <a href="{% url 'profile' %}"
                   ><i class="flaticon-gear-loading"></i>Account Settings</a
                 >
               </li>

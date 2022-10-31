@@ -6,7 +6,7 @@
   <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
     <div class="mobile-sidebar-header d-md-none">
       <div class="header-logo">
-        <a href="index.html"
+        <a href="{% url 'index' %}"
           ><img width="50%" src="{% static 'img/logo.png' %}" alt="logo"
         /></a>
       </div>
@@ -14,12 +14,12 @@
     <div class="sidebar-menu-content">
       <ul class="nav nav-sidebar-menu sidebar-toggle-view">
         <li class="nav-item sidebar-nav-item">
-          <a href="#" class="nav-link"
+          <a href="{% url 'index' %}" class="nav-link"
             ><i class="flaticon-dashboard"></i><span>Dashboard</span></a
           >
           <ul class="nav sub-group-menu">
             <li class="nav-item">
-              <a href="index.html" class="nav-link menu-active"
+              <a href="{% url 'index' %}" class="nav-link menu-active"
                 ><i class="fas fa-angle-right"></i>Admin</a
               >
             </li>
