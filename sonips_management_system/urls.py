@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('sonips_admin.urls')), 
     path('account/', include('account.urls')), 
     path('base/', include('base.urls')), 
+    path('sonips_student/', include('sonips_student.urls')), 
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

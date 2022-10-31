@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account',
     'base',
     'sonips_admin',
+    'sonips_student',
 ]
 
 MIDDLEWARE = [
