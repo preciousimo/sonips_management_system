@@ -1,4 +1,5 @@
 from django.urls import path
+from . import views
 
 from .views import (
     ClassCreateView,
@@ -6,12 +7,11 @@ from .views import (
     ClassListView,
     ClassUpdateView,
     CurrentSessionAndTermView,
-    IndexView,
+    # IndexView,
     SessionCreateView,
     SessionDeleteView,
     SessionListView,
-    SessionUpdateView,
-    SiteConfigView,
+    SessionUpdateView, 
     SubjectCreateView,
     SubjectDeleteView,
     SubjectListView,
@@ -23,8 +23,8 @@ from .views import (
 )
 
 urlpatterns = [
-    path("", IndexView.as_view(), name="home"),
-    path("site-config", SiteConfigView.as_view(), name="configs"),
+    path('', views.IndexView, name="home"),
+    # path("", IndexView.as_view(), name="home"), 
     path(
         "current-session/", CurrentSessionAndTermView.as_view(), name="current-session"
     ),
