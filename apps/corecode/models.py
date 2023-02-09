@@ -6,8 +6,8 @@ from django.db import models
 class AcademicSession(models.Model):
     """Academic Session"""
 
-    name = models.CharField(max_length=200, unique=True)
-    current = models.BooleanField(default=True)
+    name = models.CharField(null=True, blank=True, max_length=200, unique=True)
+    current = models.BooleanField(null=True, blank=True, default=True)
 
     class Meta:
         ordering = ["-name"]
@@ -19,8 +19,8 @@ class AcademicSession(models.Model):
 class AcademicTerm(models.Model):
     """Academic Term"""
 
-    name = models.CharField(max_length=20, unique=True)
-    current = models.BooleanField(default=True)
+    name = models.CharField(null=True, blank=True, max_length=20, unique=True)
+    current = models.BooleanField(null=True, blank=True, default=True)
 
     class Meta:
         ordering = ["name"]
