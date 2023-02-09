@@ -1,5 +1,4 @@
 add system log
-workon the config page
 check all forms.html
+download invoices as pdf
 work on bulk upload of invoices from excel
-password change
