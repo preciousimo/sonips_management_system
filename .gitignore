@@ -1,1 +1,4 @@
+.env
+staticfiles/
 media/
+db.sqlite3
