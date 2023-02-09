@@ -6,46 +6,46 @@ from django.shortcuts import HttpResponseRedirect, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from apps.students.models import Student
+from apps.staffs.models import Staff
 
 from .forms import (
     AcademicSessionForm,
     AcademicTermForm,
-    CurrentSessionForm,
-    SiteConfigForm,
+    CurrentSessionForm, 
     StudentClassForm,
     SubjectForm,
 )
 from .models import (
     AcademicSession,
-    AcademicTerm,
-    SiteConfig,
+    AcademicTerm, 
     StudentClass,
     Subject,
 )
 
 
+@login_required(login_url='login')
+def IndexView(request): 
+
+    students = Student.objects.all()
+    staff = Staff.objects.all()
+    
+    total_students = students.count()
+    total_staff = staff.count()
+    
+    context = {
+        'total_staff':total_staff, 'total_students':total_students,
+    }
+    
+    return render(request, 'index.html', context)
+ 
+"""
 class IndexView(LoginRequiredMixin, TemplateView):
+    students = Student.objects.all()
+    total_students = students.count()
     template_name = "index.html"
-
-
-class SiteConfigView(LoginRequiredMixin, View):
-    """Site Config View"""
-
-    form_class = SiteConfigForm
-    template_name = "corecode/siteconfig.html"
-
-    def get(self, request, *args, **kwargs):
-        formset = self.form_class(queryset=SiteConfig.objects.all())
-        context = {"formset": formset}
-        return render(request, self.template_name, context)
-
-    def post(self, request, *args, **kwargs):
-        formset = self.form_class(request.POST)
-        if formset.is_valid():
-            formset.save()
-            messages.success(request, "Configurations successfully updated")
-        context = {"formset": formset, "title": "Configuration"}
-        return render(request, self.template_name, context)
+"""
+ 
 
 
 class SessionListView(LoginRequiredMixin, SuccessMessageMixin, ListView):
