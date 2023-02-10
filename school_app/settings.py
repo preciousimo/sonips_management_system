@@ -1,6 +1,5 @@
 from pathlib import Path
-import os
-from decouple import config
+import os 
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
