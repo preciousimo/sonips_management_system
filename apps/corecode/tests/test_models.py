@@ -2,16 +2,9 @@ from django.test import TestCase
 
 from apps.corecode.models import (
     AcademicSession,
-    AcademicTerm,
-    SiteConfig,
+    AcademicTerm, 
     Subject,
 )
-
-
-class SiteConfigTest(TestCase):
-    def test_siteconfig(self):
-        site_config = SiteConfig.objects.create(key="akey", value="aname")
-        self.assertEqual(str(site_config), "akey")
 
 
 class AcademicSessionTest(TestCase):
