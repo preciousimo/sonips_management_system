@@ -46,7 +46,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
 
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    
+
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -88,7 +88,7 @@ DATABASES = {
         # "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': str(os.getenv('DB_NAME')) ,
-        'USER': config('DB_USER'),
+        'USER': str(os.getenv('DB_USER')),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
