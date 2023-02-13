@@ -74,6 +74,8 @@ def create_result(request):
 
 @login_required
 def edit_results(request):
+    current_session = AcademicSession.objects.get(current=True)
+    current_term = AcademicTerm.objects.get(current=True)
     if request.method == "POST":
         form = EditResults(request.POST)
         if form.is_valid():
@@ -82,7 +84,7 @@ def edit_results(request):
             return redirect("edit-results")
     else:
         results = Result.objects.filter(
-            session=request.current_session, term=request.current_term
+            session=current_session, term=current_term
         )
         form = EditResults(queryset=results)
     return render(request, "result/edit_results.html", {"formset": form})
@@ -90,8 +92,10 @@ def edit_results(request):
 
 class ResultListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
+        current_session = AcademicSession.objects.get(current=True)
+        current_term = AcademicTerm.objects.get(current=True)
         results = Result.objects.filter(
-            session=request.current_session, term=request.current_term
+            session=current_session, term=current_term
         )
         bulk = {}
 
