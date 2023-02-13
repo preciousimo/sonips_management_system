@@ -18,7 +18,7 @@ class InvoiceListView(LoginRequiredMixin, ListView):
 class InvoiceCreateView(LoginRequiredMixin, CreateView):
     model = Invoice
     fields = "__all__"
-    success_url = "/finance/list"
+    success_url = "/finance/list/"
 
     def get_context_data(self, **kwargs):
         context = super(InvoiceCreateView, self).get_context_data(**kwargs)
