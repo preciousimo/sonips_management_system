@@ -8,17 +8,20 @@ from django.views.generic import ListView, TemplateView, View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from apps.students.models import Student
 from apps.staffs.models import Staff
+from .middleware import SiteWideConfigs
 
 from .forms import (
     AcademicSessionForm,
     AcademicTermForm,
-    CurrentSessionForm, 
+    CurrentSessionForm,
+    SiteConfigForm,
     StudentClassForm,
     SubjectForm,
 )
 from .models import (
     AcademicSession,
-    AcademicTerm, 
+    AcademicTerm,
+    SiteConfig,
     StudentClass,
     Subject,
 )
@@ -38,14 +41,26 @@ def IndexView(request):
     }
     
     return render(request, 'index.html', context)
- 
-"""
-class IndexView(LoginRequiredMixin, TemplateView):
-    students = Student.objects.all()
-    total_students = students.count()
-    template_name = "index.html"
-"""
- 
+
+
+class SiteConfigView(LoginRequiredMixin, View):
+    """Site Config View"""
+
+    form_class = SiteConfigForm
+    template_name = "corecode/siteconfig.html"
+
+    def get(self, request, *args, **kwargs):
+        formset = self.form_class(queryset=SiteConfig.objects.all())
+        context = {"formset": formset}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        formset = self.form_class(request.POST)
+        if formset.is_valid():
+            formset.save()
+            messages.success(request, "Configurations successfully updated")
+        context = {"formset": formset, "title": "Configuration"}
+        return render(request, self.template_name, context)
 
 
 class SessionListView(LoginRequiredMixin, SuccessMessageMixin, ListView):
@@ -254,7 +269,13 @@ class CurrentSessionAndTermView(LoginRequiredMixin, View):
         return render(request, self.template_name, {"form": form})
 
     def post(self, request, *args, **kwargs):
-        form = self.form_Class(request.POST)
+        form = self.form_class(
+            request.POST,
+            initial={
+                "current_session": AcademicSession.objects.get(current=True),
+                "current_term": AcademicTerm.objects.get(current=True),
+            }
+        )
         if form.is_valid():
             session = form.cleaned_data["current_session"]
             term = form.cleaned_data["current_term"]

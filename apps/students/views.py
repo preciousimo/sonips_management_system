@@ -52,9 +52,7 @@ class StudentUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         """add date picker in forms"""
         form = super(StudentUpdateView, self).get_form()
         form.fields["date_of_birth"].widget = widgets.DateInput(attrs={"type": "date"})
-        form.fields["date_of_admission"].widget = widgets.DateInput(
-            attrs={"type": "date"}
-        )
+        form.fields["date_of_admission"].widget = widgets.DateInput(attrs={"type": "date"})
         form.fields["address"].widget = widgets.Textarea(attrs={"rows": 2})
         form.fields["others"].widget = widgets.Textarea(attrs={"rows": 2})
         # form.fields['passport'].widget = widgets.FileInput()

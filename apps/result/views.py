@@ -101,7 +101,6 @@ class ResultListView(LoginRequiredMixin, View):
                     subjects.append(subject)
                     test_total += subject.test_score
                     exam_total += subject.exam_score
-                    
 
             bulk[result.student.id] = {
                 "student": result.student,
