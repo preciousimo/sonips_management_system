@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView, View
+from apps.corecode.models import AcademicSession, AcademicTerm
 
 from apps.students.models import Student
 
@@ -52,10 +53,12 @@ def create_result(request):
         # after choosing students
         id_list = request.POST.getlist("students")
         if id_list:
+            current_session = AcademicSession.objects.get(current=True)
+            current_term = AcademicTerm.objects.get(current=True)
             form = CreateResults(
                 initial={
-                    "session": request.current_session,
-                    "term": request.current_term,
+                    "session": current_session,
+                    "term": current_term,
                 }
             )
             studentlist = ",".join(id_list)
