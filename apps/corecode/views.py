@@ -6,6 +6,7 @@ from django.shortcuts import HttpResponseRedirect, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from apps.finance.models import Invoice, Receipt
 from apps.students.models import Student
 from apps.staffs.models import Staff
 from .middleware import SiteWideConfigs
@@ -31,13 +32,20 @@ from .models import (
 def IndexView(request): 
 
     students = Student.objects.all()
-    staff = Staff.objects.all()
-    
+    staff = Staff.objects.all() 
+    earnings = Invoice.objects.all()
+
     total_students = students.count()
     total_staff = staff.count()
+    amount = Receipt.objects.filter(invoice__in=earnings)
+    total_amount_paid = 0
+    for earning in amount:
+            total_amount_paid += earning.amount_paid
+    
+    
     
     context = {
-        'total_staff':total_staff, 'total_students':total_students,
+        'total_staff':total_staff, 'total_students':total_students, 'total_amount_paid':total_amount_paid
     }
     
     return render(request, 'index.html', context)
