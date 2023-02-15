@@ -34,6 +34,8 @@ def IndexView(request):
     students = Student.objects.all()
     staff = Staff.objects.all() 
     earnings = Invoice.objects.all()
+    current_session = AcademicSession.objects.get(current=True)
+    current_term = AcademicTerm.objects.get(current=True)
 
     total_students = students.count()
     total_staff = staff.count()
@@ -42,10 +44,12 @@ def IndexView(request):
     for earning in amount:
             total_amount_paid += earning.amount_paid
     
-    
-    
     context = {
-        'total_staff':total_staff, 'total_students':total_students, 'total_amount_paid':total_amount_paid
+        'total_staff':total_staff,
+        'total_students':total_students,
+        'total_amount_paid':total_amount_paid,
+        'current_session':current_session,
+        'current_term':current_term,
     }
     
     return render(request, 'index.html', context)
