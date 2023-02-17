@@ -12,6 +12,7 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <link rel="stylesheet" href="{% static 'plugins/toastr/toastr.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
   <link rel="stylesheet" href="{% static 'plugins/Datatables/datatables.min.css' %}" />
@@ -90,6 +91,16 @@
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
                   Students
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'staff-list' %}" class="nav-link">
+                {% comment %} <i class="fa-regular b fa-people-simple"></i> {% endcomment %}
+                {% comment %} <ion-icon name="people-sharp"></ion-icon> {% endcomment %}
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Parents
                 </p>
               </a>
             </li>
@@ -275,6 +286,7 @@
   <!-- OPTIONAL SCRIPTS -->
   <script src="{% static 'dist/js/demo.js' %}"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
 
   {% if messages %}
