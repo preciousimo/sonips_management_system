@@ -3,45 +3,46 @@
 {% block title %}Parent{% endblock title %}
 
 {% block breadcrumb %}
-<a class="btn btn-primary" href="{% url 'parent-create' %}"><i
+<a class="btn btn-primary" href="{% url 'student-create' %}"><i
     class="fas fa-plus"></i> New parent</a>
 {% endblock breadcrumb %}
 
 {% block content %}
-  <table id="stafftable" class="table table-bordered table-hover">
-    <thead class="thead-light">
-      <tr>
-        <th>S/N</th>
-        <th>Fullname</th>
-        <th>Gender</th>
-        <th>Mobile Phone Number</th>
-        <th>Alternative Contact</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      {% for parent in object_list %}
-        <tr class='clickable-row' data-href="{% url 'parent-detail' parent.id %}">
-          <td>{{ forloop.counter}}</td>
-          <td>{{ parent.surname}} {{parent.firstname }} {{parent.other_name }}</td>
-          <td>{{ parent.get_gender_display}}</td>
-          <td>{{ parent.mobile_number}}</td>
-          <td>{{ parent.alternative_number}}</td>
-          <td>{{ parent.get_current_status_display}}</td>
+  <div class="table-responsive">
+    <table id="parenttable" class="table table-bordered table-hover" data-page-length='100'>
+      <thead class="thead-light">
+        <tr>
+          <th>S/N</th>
+          <th>Fullname</th>
+          <th>Gender</th>
+          <th>Mobile Phone Number</th>
+          <th>Alternative Contact</th>
+          <th>Status</th>
         </tr>
-      {% endfor %}
+      </thead>
+      <tbody>
 
-    </tbody>
-  </table>
+        {% for parent in object_list  %}
+          <tr class='clickable-row' data-href="{% url 'parent-detail' parent.id %}">
+            <td>{{ forloop.counter}}</td>
+            <td>{{ parent.surname}} {{parent.firstname }} {{parent.other_name }}</td>
+            <td>{{ parent.get_gender_display}}</td>
+            <td>{{ parent.mobile_number}}</td>
+            <td>{{ parent.alternative_number}}</td>
+            <td>{{ parent.get_current_status_display}}</td>
+          </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
 {% endblock content %}
 
 
 {% block morejs %}
 <script>
-   $('#stafftable').DataTable({
-    select: false
-    });
+  $('#parenttable').DataTable({
+  });
 </script>
 
 {% endblock morejs %}
