@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from apps.finance.models import Invoice, Receipt
+from apps.parents.models import Parent
 from apps.students.models import Student
 from apps.staffs.models import Staff
 from .middleware import SiteWideConfigs
@@ -29,15 +30,17 @@ from .models import (
 
 
 @login_required(login_url='login')
-def IndexView(request): 
+def IndexView(request):
 
     students = Student.objects.all()
-    staff = Staff.objects.all() 
+    parent = Parent.objects.all()
+    staff = Staff.objects.all()
     earnings = Invoice.objects.all()
     current_session = AcademicSession.objects.get(current=True)
     current_term = AcademicTerm.objects.get(current=True)
 
     total_students = students.count()
+    total_parent = parent.count()
     total_staff = staff.count()
     amount = Receipt.objects.filter(invoice__in=earnings)
     total_amount_paid = 0
@@ -46,6 +49,7 @@ def IndexView(request):
     
     context = {
         'total_staff':total_staff,
+        'total_parent':total_parent,
         'total_students':total_students,
         'total_amount_paid':total_amount_paid,
         'current_session':current_session,
