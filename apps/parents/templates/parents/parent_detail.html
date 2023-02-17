@@ -29,10 +29,11 @@
         <div>
           <div class="form-group border-bottom row">
             <label class="col">
-              Date of Birth
+              Child/Children
             </label>
             <div class="col">
-              {{ object.date_of_birth }}
+              {{ object.child.firstname }}
+              {{ object.child.surname }}
             </div>
           </div>
 
@@ -53,21 +54,10 @@
               {{ object.address }}
             </div>
           </div>
-          <div class="form-group border-bottom row">
-            <label class="col">
-              Comments
-            </label>
-            <div class="col">
-              {{ object.others }}
-            </div>
-          </div>
 
         </div>
 
       </div>
     </div>
-
-
-
 
 {% endblock content %}
