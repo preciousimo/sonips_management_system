@@ -20,13 +20,12 @@ class ParentDetailView(DetailView):
 class ParentCreateView(SuccessMessageMixin, CreateView):
     model = Parent
     fields = "__all__"
-    success_message = "New staff successfully added"
+    success_message = "New parent successfully added"
 
     def get_form(self):
         """add date picker in forms"""
         form = super(ParentCreateView, self).get_form() 
-        form.fields["address"].widget = widgets.Textarea(attrs={"rows": 1})
-        form.fields["others"].widget = widgets.Textarea(attrs={"rows": 1})
+        form.fields["address"].widget = widgets.Textarea(attrs={"rows": 1}) 
         return form
 
 
