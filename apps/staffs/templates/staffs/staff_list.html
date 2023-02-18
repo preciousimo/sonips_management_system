@@ -3,35 +3,35 @@
 {% block title %}Staff{% endblock title %}
 
 {% block breadcrumb %}
-<a class="btn btn-primary" href="{% url 'staff-create' %}"><i
-    class="fas fa-plus"></i> New staff</a>
+<a class="btn btn-primary" href="{% url 'student-create' %}"><i
+    class="fas fa-plus"></i> New parent</a>
 {% endblock breadcrumb %}
 
 {% block content %}
-  <table id="stafftable" class="table table-bordered table-hover">
-    <thead class="thead-light">
-      <tr>
-        <th>S/N</th>
-        <th>Fullname</th>
-        <th>Gender</th>
-        <th>Mobile Phone Number</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      {% for staff in object_list %}
-        <tr class='clickable-row' data-href="{% url 'staff-detail' staff.id %}">
-          <td>{{ forloop.counter}}</td>
-          <td>{{ staff.surname}} {{staff.firstname }} {{staff.other_name }}</td>
-          <td>{{ staff.get_gender_display}}</td>
-          <td>{{ staff.mobile_number}}</td>
-          <td>{{ staff.get_current_status_display}}</td>
+  <div class="table-responsive">
+    <table id="stafftable" class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>S/N</th>
+          <th>Fullname</th>
+          <th>Gender</th>
+          <th>Mobile Phone Number</th>
+          <th>Status</th>
         </tr>
-      {% endfor %}
-
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for staff in object_list %}
+          <tr class='clickable-row' data-href="{% url 'staff-detail' staff.id %}">
+            <td>{{ forloop.counter}}</td>
+            <td>{{ staff.surname}} {{staff.firstname }} {{staff.other_name }}</td>
+            <td>{{ staff.get_gender_display}}</td>
+            <td>{{ staff.mobile_number}}</td>
+            <td>{{ staff.get_current_status_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock content %}
 
 
