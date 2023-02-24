@@ -10,8 +10,8 @@ from .models import (
     Todo,
 )
 
-SiteConfigForm = modelformset_factory(
-    SiteConfig,
+SiteConfigForm = modelformset_factory( 
+    model= SiteConfig,
     fields=(
         "key",
         "value",
