@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import HttpResponseRedirect, redirect, render
+from django.shortcuts import HttpResponseRedirect, redirect, render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -19,6 +19,8 @@ from .forms import (
     SiteConfigForm,
     StudentClassForm,
     SubjectForm,
+    TodoForm,
+    TodoUpdateForm,
 )
 from .models import (
     AcademicSession,
@@ -26,6 +28,7 @@ from .models import (
     SiteConfig,
     StudentClass,
     Subject,
+    Todo,
 )
 
 
@@ -46,6 +49,9 @@ def IndexView(request):
     total_amount_paid = 0
     for earning in amount:
             total_amount_paid += earning.amount_paid
+
+    todo_items = Todo.objects.all()
+    
     
     context = {
         'total_staff':total_staff,
@@ -54,10 +60,38 @@ def IndexView(request):
         'total_amount_paid':total_amount_paid,
         'current_session':current_session,
         'current_term':current_term,
+        'todo_items': todo_items,
     }
     
     return render(request, 'index.html', context)
 
+def create_todo(request):
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = TodoForm()
+
+    return render(request, 'index.html', {'form': form})
+
+def update_todo(request, todo_id):
+    todo = get_object_or_404(Todo, id=todo_id)
+
+    if request.method == 'POST':
+        form = TodoUpdateForm(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = TodoUpdateForm(instance=todo)
+    return render(request, 'index.html', {'form': form})
+
+def delete_todo(request, todo_id):
+    todo = get_object_or_404(Todo, pk=todo_id)
+    todo.delete()
+    return redirect('/')
 
 class SiteConfigView(LoginRequiredMixin, View):
     """Site Config View"""

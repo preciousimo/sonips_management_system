@@ -22,6 +22,8 @@
   <link
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
     rel="stylesheet">
+  <!-- daterange picker --> 
+  <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css" >
 </head>
 
 <body
@@ -286,9 +288,6 @@
   <!-- OPTIONAL SCRIPTS -->
   <script src="{% static 'dist/js/demo.js' %}"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
-
   {% if messages %}
   {% for message in messages %}
   <script type=text/javascript>
@@ -308,6 +307,16 @@
       });
     })(jQuery)
 
+  </script>
+
+  <script>
+    //Date picker
+    $('#reservationdate').datetimepicker({
+      format: 'L'
+    });
+
+    //Date and time picker
+     $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
   </script>
 
   {% block morejs %}

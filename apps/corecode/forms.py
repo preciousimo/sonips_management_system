@@ -7,6 +7,7 @@ from .models import (
     SiteConfig,
     StudentClass,
     Subject,
+    Todo,
 )
 
 SiteConfigForm = modelformset_factory(
@@ -17,6 +18,20 @@ SiteConfigForm = modelformset_factory(
     ),
     extra=0,
 )
+
+class TodoForm(forms.ModelForm):
+    due_date = forms.DateField(widget=forms.SelectDateWidget)
+    class Meta:
+        model = Todo
+        fields = ['title', 'completed', 'due_date']
+
+class TodoUpdateForm(forms.ModelForm):
+    due_date = forms.DateField(widget=forms.SelectDateWidget)
+
+    class Meta:
+        model = Todo
+        fields = ['title', 'completed', 'due_date']
+
 
 
 class AcademicSessionForm(ModelForm):

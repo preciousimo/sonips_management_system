@@ -25,7 +25,7 @@ from .views import (
 
 urlpatterns = [
     # path("", IndexView.as_view(), name="home"),
-    path('', views.IndexView, name="home"),
+    path('', views.IndexView, name="home"), #task_list
     path("site-config", SiteConfigView.as_view(), name="configs"),
     path(
         "current-session/", CurrentSessionAndTermView.as_view(), name="current-session"
@@ -62,4 +62,7 @@ urlpatterns = [
         SubjectDeleteView.as_view(),
         name="subject-delete",
     ),
+    path('create/', views.create_todo, name='create_todo'),
+    path('update/<int:todo_id>', views.update_todo, name='update_todo'),
+    path('delete/<int:todo_id>', views.delete_todo, name='delete_todo'),
 ]
